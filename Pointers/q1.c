@@ -13,7 +13,7 @@ int main(){
         sum += i;
     }
 
-    printf("\nSum is %d\nAverage is %d\n",sum,(int)(sum/i));
+    printf("\nSum is %d\nAverage is %d\n",sum,(int)(sum/(i-m)));
     
     return 0;
 
