@@ -11,7 +11,7 @@ struct student{
     int marks[8][2];
 };
 
-char sub[100][10] = { "Physics" , "Chemistry" , "Mathematics" , "Biology" , "English" , "Nepali" , "Computer"};
+char sub[10][10] = { "Physics" , "Chemistry" , "Mathematics" , "Biology" , "English" , "Nepali" };
 
 int main(){
     int n;
@@ -25,20 +25,23 @@ int main(){
         printf("Enter Name: ");
         scanf("%s",S[i].name);
         printf("\nEnter the marks of the following subjects: ");
-        for(j=0 ; j<8 ; j++){
+        for(j=0 ; j<6 ; j++){
             printf("%s : ",sub[j]);
             scanf("%d",&S[i].marks[j][0]);
-            S[i].marks[j][1] = i;
+            S[i].marks[j][1] = j;
         }
     }
 
     for(i = 0;i<n;i++){
-        for(j=0 ; j<8 ; j++){
-            for(k = j+1 ; k<8 ; k++){
+        for(j=0 ; j<6 ; j++){
+            for(k = j+1 ; k<6 ; k++){
                 if(S[i].marks[j][0]>S[i].marks[k][0]){
                     int temp = S[i].marks[j][0];
                     S[i].marks[j][0] = S[i].marks[k][0];
                     S[i].marks[k][0] = temp;
+                    temp = S[i].marks[j][1];
+                    S[i].marks[j][1] = S[i].marks[k][1];
+                    S[i].marks[k][1] = temp;
                 }
             }
         }  
@@ -47,7 +50,7 @@ int main(){
     printf("\n\nStored Details of Students:\n");
     for(i=0 ; i<n ; i++){
         printf("Name: %s\n Entered Marks in Decending order:\n",S[i].name);
-        for(j=0 ; j<8 ; j++){
+        for(j=0 ; j<6 ; j++){
             int sub_index = S[i].marks[j][1];
             printf("%s : %d\n",sub[sub_index],S[i].marks[j][0]);
         }
