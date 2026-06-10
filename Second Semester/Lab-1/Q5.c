@@ -10,7 +10,7 @@ struct student{
     char name[100];
     int marks[8][2];
 };
-
+ 
 char sub[10][10] = { "Physics" , "Chemistry" , "Mathematics" , "Biology" , "English" , "Nepali" };
 
 int main(){
